@@ -15,8 +15,11 @@ function addToList() {
   container.appendChild(newLi);
 };
 
-function markDone() {
+var ul = document.getElementById('list'); //start of markDone section
 
+function markDone(event) {
+  event.target.style = "text-decoration: line-through;";
+  event.target.id = "ready-to-delete";
+};
 
-}
-
+ul.addEventListener("click", markDone);
