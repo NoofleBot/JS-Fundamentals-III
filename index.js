@@ -3,13 +3,12 @@ console.log('My code is running');
 var toDoListItems = [];
 let userInput;
 
-let addToListField = document.querySelector('#taskToAdd');
-addToListField.addEventListener(
-  "input",
-  (eventObject) => userInput = (eventObject.target.value)
-);
+var form = document.getElementById('addTaskForm');
+function handleForm(event) { event.preventDefault(); } //prevent page from refreshing when form is submitted
+form.addEventListener('submit', handleForm);
 
- function addToList() {
-console.log(userInput)
+function addToList() {
+console.log(document.getElementById("taskToAdd").value); //extract & console log value of form input on submit
+document.getElementById("taskToAdd").value = "" //make the form text box empty apon submit
 };
 
