@@ -15,3 +15,8 @@ function addToList() {
   container.appendChild(newLi);
 };
 
+function markDone() {
+
+
+}
+
