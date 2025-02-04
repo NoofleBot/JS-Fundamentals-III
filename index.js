@@ -1,5 +1,3 @@
-console.log('My code is running');
-
 var form = document.getElementById('addTaskForm');
 function handleForm(event) { event.preventDefault(); } //prevent page from refreshing when form is submitted
 form.addEventListener('submit', handleForm);
@@ -17,9 +15,18 @@ function addToList() {
 
 var ul = document.getElementById('list'); //start of markDone section
 
-function markDone(event) {
-  event.target.style = "text-decoration: line-through;";
-  event.target.id = "ready-to-delete";
+function markDoneOrDelete(event) {
+  if (event.target.id === "ready-to-delete") {
+    event.target.remove();
+  }
+    event.target.style = "text-decoration: line-through;";
+    event.target.id = "ready-to-delete";
 };
 
-ul.addEventListener("click", markDone);
+ul.addEventListener("click", markDoneOrDelete);
+
+
+//bug midigation: prevent ul from ever getting id=ready-to-delete
+//or text-decoration: line-through
+
+//querySelectorAll and/or a ForEach loop could be your friend here
